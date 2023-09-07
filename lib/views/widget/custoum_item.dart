@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustoumItem extends StatelessWidget {
-  const CustoumItem({super.key});
-
+  CustoumItem({required this.concolor});
+  var concolor;
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 24, bottom: 16, left: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: const Color(0xffFFcc80),
+        color: concolor,
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
         ListTile(
@@ -19,7 +19,7 @@ class CustoumItem extends StatelessWidget {
             style: TextStyle(color: Colors.black, fontSize: 24),
           ),
           subtitle: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18.0),
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: Text(
               'creaate a new app with farouq mohammed',
               style:
