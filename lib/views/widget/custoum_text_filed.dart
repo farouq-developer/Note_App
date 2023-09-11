@@ -14,7 +14,7 @@ class CustoumTextFiled extends StatelessWidget {
         enabledBorder: BorderCustom(),
         focusedBorder: BorderCustom(kPrimary),
         hintText: hint,
-        hintStyle: TextStyle(color: kPrimary),
+        hintStyle: const TextStyle(color: kPrimary),
       ),
       maxLines: maxline,
     );
