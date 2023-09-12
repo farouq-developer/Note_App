@@ -2,12 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:note_app/constans.dart';
 
 class CustoumTextFiled extends StatelessWidget {
-  const CustoumTextFiled({super.key, required this.hint, this.maxline});
+  const CustoumTextFiled(
+      {super.key, required this.hint, this.maxline, this.onsaved});
   final String hint;
   final int? maxline;
+  final void Function(String?)? onsaved;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onsaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'the filed is required';
+        } else {
+          null;
+        }
+      },
       cursorColor: kPrimary,
       decoration: InputDecoration(
         border: BorderCustom(),
