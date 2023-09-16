@@ -3,13 +3,22 @@ import 'package:note_app/constans.dart';
 
 class CustoumTextFiled extends StatelessWidget {
   const CustoumTextFiled(
-      {super.key, required this.hint, this.maxline, this.onsaved});
+      {super.key,
+      required this.hint,
+      this.maxline,
+      this.onsaved,
+      this.initial,
+      this.onChanged});
   final String hint;
   final int? maxline;
+  final String? initial;
   final void Function(String?)? onsaved;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: initial,
+      onChanged: onChanged,
       onSaved: onsaved,
       validator: (value) {
         if (value?.isEmpty ?? true) {

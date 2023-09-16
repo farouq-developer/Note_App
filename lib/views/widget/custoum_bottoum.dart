@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:note_app/constans.dart';
 
 class CustoumBottoum extends StatelessWidget {
-  const CustoumBottoum({super.key, this.onTap});
+  const CustoumBottoum({super.key, this.onTap, this.isLoding = false});
   final void Function()? onTap;
+  final bool isLoding;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,12 +14,16 @@ class CustoumBottoum extends StatelessWidget {
         height: 60,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16), color: kPrimary),
-        child: const Center(
-          child: Text(
-            'Add',
-            style: TextStyle(
-                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+        child: Center(
+          child: isLoding
+              ? const CircularProgressIndicator()
+              : const Text(
+                  'Add',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
         ),
       ),
     );
